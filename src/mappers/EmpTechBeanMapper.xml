@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masago.mapper.EmpTechBeanMapper">
+  <resultMap id="BaseResultMap" type="com.masago.bean.EmpTechBean">
+    <id column="NO" jdbcType="VARCHAR" property="no" />
+    <id column="EMP_ID" jdbcType="CHAR" property="empId" />
+    <result column="DOS" jdbcType="CHAR" property="dos" />
+    <result column="WINDOWS" jdbcType="CHAR" property="windows" />
+    <result column="UNIX" jdbcType="CHAR" property="unix" />
+    <result column="LINUX" jdbcType="CHAR" property="linux" />
+    <result column="ANDROID" jdbcType="CHAR" property="android" />
+    <result column="IOS" jdbcType="CHAR" property="ios" />
+    <result column="MAC" jdbcType="CHAR" property="mac" />
+    <result column="WINCE" jdbcType="CHAR" property="wince" />
+    <result column="OS_TRON" jdbcType="CHAR" property="osTron" />
+    <result column="SYMBIAN" jdbcType="CHAR" property="symbian" />
+    <result column="CYGWIN" jdbcType="CHAR" property="cygwin" />
+    <result column="BREW" jdbcType="CHAR" property="brew" />
+    <result column="NETWARE" jdbcType="CHAR" property="netware" />
+    <result column="VB" jdbcType="CHAR" property="vb" />
+    <result column="VBNET" jdbcType="CHAR" property="vbnet" />
+    <result column="ASP" jdbcType="CHAR" property="asp" />
+    <result column="VCPLUS" jdbcType="CHAR" property="vcplus" />
+    <result column="UML" jdbcType="CHAR" property="uml" />
+    <result column="PERL" jdbcType="CHAR" property="perl" />
+    <result column="C" jdbcType="CHAR" property="c" />
+    <result column="UNIX_SHELL" jdbcType="CHAR" property="unixShell" />
+    <result column="PLSQL" jdbcType="CHAR" property="plsql" />
+    <result column="POWERBUILDER" jdbcType="CHAR" property="powerbuilder" />
+    <result column="DELPHI" jdbcType="CHAR" property="delphi" />
+    <result column="PYTHON" jdbcType="CHAR" property="python" />
+    <result column="JAVA" jdbcType="CHAR" property="java" />
+    <result column="SERVLET" jdbcType="CHAR" property="servlet" />
+    <result column="JSP" jdbcType="CHAR" property="jsp" />
+    <result column="HIBERNATE_JPA" jdbcType="CHAR" property="hibernateJpa" />
+    <result column="STRUTS" jdbcType="CHAR" property="struts" />
+    <result column="NETFRAMEWORK" jdbcType="CHAR" property="netframework" />
+    <result column="CSHARP" jdbcType="CHAR" property="csharp" />
+    <result column="HTML" jdbcType="CHAR" property="html" />
+    <result column="PROC" jdbcType="CHAR" property="proc" />
+    <result column="AJAX" jdbcType="CHAR" property="ajax" />
+    <result column="FLEX" jdbcType="CHAR" property="flex" />
+    <result column="INTRA_MART" jdbcType="CHAR" property="intraMart" />
+    <result column="PHP" jdbcType="CHAR" property="php" />
+    <result column="CPLUS" jdbcType="CHAR" property="cplus" />
+    <result column="SQL" jdbcType="CHAR" property="sql" />
+    <result column="SAP_ABAP" jdbcType="CHAR" property="sapAbap" />
+    <result column="MATLAB" jdbcType="CHAR" property="matlab" />
+    <result column="MATHEMATICA" jdbcType="CHAR" property="mathematica" />
+    <result column="COBOL" jdbcType="CHAR" property="cobol" />
+    <result column="JAVASCRIPT" jdbcType="CHAR" property="javascript" />
+    <result column="XML" jdbcType="CHAR" property="xml" />
+    <result column="ASSEMBLER" jdbcType="CHAR" property="assembler" />
+    <result column="JUSTWARE" jdbcType="CHAR" property="justware" />
+    <result column="ACCESS" jdbcType="CHAR" property="access" />
+    <result column="ORACLE" jdbcType="CHAR" property="oracle" />
+    <result column="SQLSERVER" jdbcType="CHAR" property="sqlserver" />
+    <result column="DB2" jdbcType="CHAR" property="db2" />
+    <result column="SYBASE" jdbcType="CHAR" property="sybase" />
+    <result column="INFORMIX" jdbcType="CHAR" property="informix" />
+    <result column="POSTGRESQL" jdbcType="CHAR" property="postgresql" />
+    <result column="MYSQL" jdbcType="CHAR" property="mysql" />
+    <result column="HIRDB" jdbcType="CHAR" property="hirdb" />
+    <result column="SYMFOWARE" jdbcType="CHAR" property="symfoware" />
+    <result column="WEBLOGIC" jdbcType="CHAR" property="weblogic" />
+    <result column="APACHE" jdbcType="CHAR" property="apache" />
+    <result column="TOMCAT" jdbcType="CHAR" property="tomcat" />
+    <result column="VISUAL_STUDIO" jdbcType="CHAR" property="visualStudio" />
+    <result column="ECLIPSE" jdbcType="CHAR" property="eclipse" />
+    <result column="RD" jdbcType="CHAR" property="rd" />
+    <result column="DESIGN" jdbcType="CHAR" property="design" />
+    <result column="PG" jdbcType="CHAR" property="pg" />
+    <result column="BUG_FIX" jdbcType="CHAR" property="bugFix" />
+    <result column="TEST" jdbcType="CHAR" property="test" />
+    <result column="MAINTENANCE" jdbcType="CHAR" property="maintenance" />
+    <result column="CREATER" jdbcType="CHAR" property="creater" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="UPDATER" jdbcType="CHAR" property="updater" />
+    <result column="UPDATE_DATE" jdbcType="DATE" property="updateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    NO, EMP_ID, DOS, WINDOWS, UNIX, LINUX, ANDROID, IOS, MAC, WINCE, OS_TRON, SYMBIAN, 
+    CYGWIN, BREW, NETWARE, VB, VBNET, ASP, VCPLUS, UML, PERL, C, UNIX_SHELL, PLSQL, POWERBUILDER, 
+    DELPHI, PYTHON, JAVA, SERVLET, JSP, HIBERNATE_JPA, STRUTS, NETFRAMEWORK, CSHARP, 
+    HTML, PROC, AJAX, FLEX, INTRA_MART, PHP, CPLUS, SQL, SAP_ABAP, MATLAB, MATHEMATICA, 
+    COBOL, JAVASCRIPT, XML, ASSEMBLER, JUSTWARE, ACCESS, ORACLE, SQLSERVER, DB2, SYBASE, 
+    INFORMIX, POSTGRESQL, MYSQL, HIRDB, SYMFOWARE, WEBLOGIC, APACHE, TOMCAT, VISUAL_STUDIO, 
+    ECLIPSE, RD, DESIGN, PG, BUG_FIX, TEST, MAINTENANCE, CREATER, CREATE_DATE, UPDATER, 
+    UPDATE_DATE
+  </sql>
+  <select id="selectByExample" parameterType="com.masago.bean.EmpTechBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from emp_tech
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.masago.bean.EmpTechBeanKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from emp_tech
+    where NO = #{no,jdbcType=VARCHAR}
+      and EMP_ID = #{empId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.masago.bean.EmpTechBeanKey">
+    delete from emp_tech
+    where NO = #{no,jdbcType=VARCHAR}
+      and EMP_ID = #{empId,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masago.bean.EmpTechBeanExample">
+    delete from emp_tech
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masago.bean.EmpTechBean">
+    insert into emp_tech (NO, EMP_ID, DOS, WINDOWS, 
+      UNIX, LINUX, ANDROID, IOS, 
+      MAC, WINCE, OS_TRON, SYMBIAN, 
+      CYGWIN, BREW, NETWARE, VB, 
+      VBNET, ASP, VCPLUS, UML, 
+      PERL, C, UNIX_SHELL, PLSQL, 
+      POWERBUILDER, DELPHI, PYTHON, 
+      JAVA, SERVLET, JSP, HIBERNATE_JPA, 
+      STRUTS, NETFRAMEWORK, CSHARP, 
+      HTML, PROC, AJAX, FLEX, 
+      INTRA_MART, PHP, CPLUS, SQL, 
+      SAP_ABAP, MATLAB, MATHEMATICA, 
+      COBOL, JAVASCRIPT, XML, ASSEMBLER, 
+      JUSTWARE, ACCESS, ORACLE, SQLSERVER, 
+      DB2, SYBASE, INFORMIX, POSTGRESQL, 
+      MYSQL, HIRDB, SYMFOWARE, WEBLOGIC, 
+      APACHE, TOMCAT, VISUAL_STUDIO, 
+      ECLIPSE, RD, DESIGN, PG, 
+      BUG_FIX, TEST, MAINTENANCE, CREATER, 
+      CREATE_DATE, UPDATER, UPDATE_DATE
+      )
+    values (#{no,jdbcType=VARCHAR}, #{empId,jdbcType=CHAR}, #{dos,jdbcType=CHAR}, #{windows,jdbcType=CHAR}, 
+      #{unix,jdbcType=CHAR}, #{linux,jdbcType=CHAR}, #{android,jdbcType=CHAR}, #{ios,jdbcType=CHAR}, 
+      #{mac,jdbcType=CHAR}, #{wince,jdbcType=CHAR}, #{osTron,jdbcType=CHAR}, #{symbian,jdbcType=CHAR}, 
+      #{cygwin,jdbcType=CHAR}, #{brew,jdbcType=CHAR}, #{netware,jdbcType=CHAR}, #{vb,jdbcType=CHAR}, 
+      #{vbnet,jdbcType=CHAR}, #{asp,jdbcType=CHAR}, #{vcplus,jdbcType=CHAR}, #{uml,jdbcType=CHAR}, 
+      #{perl,jdbcType=CHAR}, #{c,jdbcType=CHAR}, #{unixShell,jdbcType=CHAR}, #{plsql,jdbcType=CHAR}, 
+      #{powerbuilder,jdbcType=CHAR}, #{delphi,jdbcType=CHAR}, #{python,jdbcType=CHAR}, 
+      #{java,jdbcType=CHAR}, #{servlet,jdbcType=CHAR}, #{jsp,jdbcType=CHAR}, #{hibernateJpa,jdbcType=CHAR}, 
+      #{struts,jdbcType=CHAR}, #{netframework,jdbcType=CHAR}, #{csharp,jdbcType=CHAR}, 
+      #{html,jdbcType=CHAR}, #{proc,jdbcType=CHAR}, #{ajax,jdbcType=CHAR}, #{flex,jdbcType=CHAR}, 
+      #{intraMart,jdbcType=CHAR}, #{php,jdbcType=CHAR}, #{cplus,jdbcType=CHAR}, #{sql,jdbcType=CHAR}, 
+      #{sapAbap,jdbcType=CHAR}, #{matlab,jdbcType=CHAR}, #{mathematica,jdbcType=CHAR}, 
+      #{cobol,jdbcType=CHAR}, #{javascript,jdbcType=CHAR}, #{xml,jdbcType=CHAR}, #{assembler,jdbcType=CHAR}, 
+      #{justware,jdbcType=CHAR}, #{access,jdbcType=CHAR}, #{oracle,jdbcType=CHAR}, #{sqlserver,jdbcType=CHAR}, 
+      #{db2,jdbcType=CHAR}, #{sybase,jdbcType=CHAR}, #{informix,jdbcType=CHAR}, #{postgresql,jdbcType=CHAR}, 
+      #{mysql,jdbcType=CHAR}, #{hirdb,jdbcType=CHAR}, #{symfoware,jdbcType=CHAR}, #{weblogic,jdbcType=CHAR}, 
+      #{apache,jdbcType=CHAR}, #{tomcat,jdbcType=CHAR}, #{visualStudio,jdbcType=CHAR}, 
+      #{eclipse,jdbcType=CHAR}, #{rd,jdbcType=CHAR}, #{design,jdbcType=CHAR}, #{pg,jdbcType=CHAR}, 
+      #{bugFix,jdbcType=CHAR}, #{test,jdbcType=CHAR}, #{maintenance,jdbcType=CHAR}, #{creater,jdbcType=CHAR}, 
+      #{createDate,jdbcType=DATE}, #{updater,jdbcType=CHAR}, #{updateDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.masago.bean.EmpTechBean">
+    insert into emp_tech
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="no != null">
+        NO,
+      </if>
+      <if test="empId != null">
+        EMP_ID,
+      </if>
+      <if test="dos != null">
+        DOS,
+      </if>
+      <if test="windows != null">
+        WINDOWS,
+      </if>
+      <if test="unix != null">
+        UNIX,
+      </if>
+      <if test="linux != null">
+        LINUX,
+      </if>
+      <if test="android != null">
+        ANDROID,
+      </if>
+      <if test="ios != null">
+        IOS,
+      </if>
+      <if test="mac != null">
+        MAC,
+      </if>
+      <if test="wince != null">
+        WINCE,
+      </if>
+      <if test="osTron != null">
+        OS_TRON,
+      </if>
+      <if test="symbian != null">
+        SYMBIAN,
+      </if>
+      <if test="cygwin != null">
+        CYGWIN,
+      </if>
+      <if test="brew != null">
+        BREW,
+      </if>
+      <if test="netware != null">
+        NETWARE,
+      </if>
+      <if test="vb != null">
+        VB,
+      </if>
+      <if test="vbnet != null">
+        VBNET,
+      </if>
+      <if test="asp != null">
+        ASP,
+      </if>
+      <if test="vcplus != null">
+        VCPLUS,
+      </if>
+      <if test="uml != null">
+        UML,
+      </if>
+      <if test="perl != null">
+        PERL,
+      </if>
+      <if test="c != null">
+        C,
+      </if>
+      <if test="unixShell != null">
+        UNIX_SHELL,
+      </if>
+      <if test="plsql != null">
+        PLSQL,
+      </if>
+      <if test="powerbuilder != null">
+        POWERBUILDER,
+      </if>
+      <if test="delphi != null">
+        DELPHI,
+      </if>
+      <if test="python != null">
+        PYTHON,
+      </if>
+      <if test="java != null">
+        JAVA,
+      </if>
+      <if test="servlet != null">
+        SERVLET,
+      </if>
+      <if test="jsp != null">
+        JSP,
+      </if>
+      <if test="hibernateJpa != null">
+        HIBERNATE_JPA,
+      </if>
+      <if test="struts != null">
+        STRUTS,
+      </if>
+      <if test="netframework != null">
+        NETFRAMEWORK,
+      </if>
+      <if test="csharp != null">
+        CSHARP,
+      </if>
+      <if test="html != null">
+        HTML,
+      </if>
+      <if test="proc != null">
+        PROC,
+      </if>
+      <if test="ajax != null">
+        AJAX,
+      </if>
+      <if test="flex != null">
+        FLEX,
+      </if>
+      <if test="intraMart != null">
+        INTRA_MART,
+      </if>
+      <if test="php != null">
+        PHP,
+      </if>
+      <if test="cplus != null">
+        CPLUS,
+      </if>
+      <if test="sql != null">
+        SQL,
+      </if>
+      <if test="sapAbap != null">
+        SAP_ABAP,
+      </if>
+      <if test="matlab != null">
+        MATLAB,
+      </if>
+      <if test="mathematica != null">
+        MATHEMATICA,
+      </if>
+      <if test="cobol != null">
+        COBOL,
+      </if>
+      <if test="javascript != null">
+        JAVASCRIPT,
+      </if>
+      <if test="xml != null">
+        XML,
+      </if>
+      <if test="assembler != null">
+        ASSEMBLER,
+      </if>
+      <if test="justware != null">
+        JUSTWARE,
+      </if>
+      <if test="access != null">
+        ACCESS,
+      </if>
+      <if test="oracle != null">
+        ORACLE,
+      </if>
+      <if test="sqlserver != null">
+        SQLSERVER,
+      </if>
+      <if test="db2 != null">
+        DB2,
+      </if>
+      <if test="sybase != null">
+        SYBASE,
+      </if>
+      <if test="informix != null">
+        INFORMIX,
+      </if>
+      <if test="postgresql != null">
+        POSTGRESQL,
+      </if>
+      <if test="mysql != null">
+        MYSQL,
+      </if>
+      <if test="hirdb != null">
+        HIRDB,
+      </if>
+      <if test="symfoware != null">
+        SYMFOWARE,
+      </if>
+      <if test="weblogic != null">
+        WEBLOGIC,
+      </if>
+      <if test="apache != null">
+        APACHE,
+      </if>
+      <if test="tomcat != null">
+        TOMCAT,
+      </if>
+      <if test="visualStudio != null">
+        VISUAL_STUDIO,
+      </if>
+      <if test="eclipse != null">
+        ECLIPSE,
+      </if>
+      <if test="rd != null">
+        RD,
+      </if>
+      <if test="design != null">
+        DESIGN,
+      </if>
+      <if test="pg != null">
+        PG,
+      </if>
+      <if test="bugFix != null">
+        BUG_FIX,
+      </if>
+      <if test="test != null">
+        TEST,
+      </if>
+      <if test="maintenance != null">
+        MAINTENANCE,
+      </if>
+      <if test="creater != null">
+        CREATER,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updater != null">
+        UPDATER,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="no != null">
+        #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=CHAR},
+      </if>
+      <if test="dos != null">
+        #{dos,jdbcType=CHAR},
+      </if>
+      <if test="windows != null">
+        #{windows,jdbcType=CHAR},
+      </if>
+      <if test="unix != null">
+        #{unix,jdbcType=CHAR},
+      </if>
+      <if test="linux != null">
+        #{linux,jdbcType=CHAR},
+      </if>
+      <if test="android != null">
+        #{android,jdbcType=CHAR},
+      </if>
+      <if test="ios != null">
+        #{ios,jdbcType=CHAR},
+      </if>
+      <if test="mac != null">
+        #{mac,jdbcType=CHAR},
+      </if>
+      <if test="wince != null">
+        #{wince,jdbcType=CHAR},
+      </if>
+      <if test="osTron != null">
+        #{osTron,jdbcType=CHAR},
+      </if>
+      <if test="symbian != null">
+        #{symbian,jdbcType=CHAR},
+      </if>
+      <if test="cygwin != null">
+        #{cygwin,jdbcType=CHAR},
+      </if>
+      <if test="brew != null">
+        #{brew,jdbcType=CHAR},
+      </if>
+      <if test="netware != null">
+        #{netware,jdbcType=CHAR},
+      </if>
+      <if test="vb != null">
+        #{vb,jdbcType=CHAR},
+      </if>
+      <if test="vbnet != null">
+        #{vbnet,jdbcType=CHAR},
+      </if>
+      <if test="asp != null">
+        #{asp,jdbcType=CHAR},
+      </if>
+      <if test="vcplus != null">
+        #{vcplus,jdbcType=CHAR},
+      </if>
+      <if test="uml != null">
+        #{uml,jdbcType=CHAR},
+      </if>
+      <if test="perl != null">
+        #{perl,jdbcType=CHAR},
+      </if>
+      <if test="c != null">
+        #{c,jdbcType=CHAR},
+      </if>
+      <if test="unixShell != null">
+        #{unixShell,jdbcType=CHAR},
+      </if>
+      <if test="plsql != null">
+        #{plsql,jdbcType=CHAR},
+      </if>
+      <if test="powerbuilder != null">
+        #{powerbuilder,jdbcType=CHAR},
+      </if>
+      <if test="delphi != null">
+        #{delphi,jdbcType=CHAR},
+      </if>
+      <if test="python != null">
+        #{python,jdbcType=CHAR},
+      </if>
+      <if test="java != null">
+        #{java,jdbcType=CHAR},
+      </if>
+      <if test="servlet != null">
+        #{servlet,jdbcType=CHAR},
+      </if>
+      <if test="jsp != null">
+        #{jsp,jdbcType=CHAR},
+      </if>
+      <if test="hibernateJpa != null">
+        #{hibernateJpa,jdbcType=CHAR},
+      </if>
+      <if test="struts != null">
+        #{struts,jdbcType=CHAR},
+      </if>
+      <if test="netframework != null">
+        #{netframework,jdbcType=CHAR},
+      </if>
+      <if test="csharp != null">
+        #{csharp,jdbcType=CHAR},
+      </if>
+      <if test="html != null">
+        #{html,jdbcType=CHAR},
+      </if>
+      <if test="proc != null">
+        #{proc,jdbcType=CHAR},
+      </if>
+      <if test="ajax != null">
+        #{ajax,jdbcType=CHAR},
+      </if>
+      <if test="flex != null">
+        #{flex,jdbcType=CHAR},
+      </if>
+      <if test="intraMart != null">
+        #{intraMart,jdbcType=CHAR},
+      </if>
+      <if test="php != null">
+        #{php,jdbcType=CHAR},
+      </if>
+      <if test="cplus != null">
+        #{cplus,jdbcType=CHAR},
+      </if>
+      <if test="sql != null">
+        #{sql,jdbcType=CHAR},
+      </if>
+      <if test="sapAbap != null">
+        #{sapAbap,jdbcType=CHAR},
+      </if>
+      <if test="matlab != null">
+        #{matlab,jdbcType=CHAR},
+      </if>
+      <if test="mathematica != null">
+        #{mathematica,jdbcType=CHAR},
+      </if>
+      <if test="cobol != null">
+        #{cobol,jdbcType=CHAR},
+      </if>
+      <if test="javascript != null">
+        #{javascript,jdbcType=CHAR},
+      </if>
+      <if test="xml != null">
+        #{xml,jdbcType=CHAR},
+      </if>
+      <if test="assembler != null">
+        #{assembler,jdbcType=CHAR},
+      </if>
+      <if test="justware != null">
+        #{justware,jdbcType=CHAR},
+      </if>
+      <if test="access != null">
+        #{access,jdbcType=CHAR},
+      </if>
+      <if test="oracle != null">
+        #{oracle,jdbcType=CHAR},
+      </if>
+      <if test="sqlserver != null">
+        #{sqlserver,jdbcType=CHAR},
+      </if>
+      <if test="db2 != null">
+        #{db2,jdbcType=CHAR},
+      </if>
+      <if test="sybase != null">
+        #{sybase,jdbcType=CHAR},
+      </if>
+      <if test="informix != null">
+        #{informix,jdbcType=CHAR},
+      </if>
+      <if test="postgresql != null">
+        #{postgresql,jdbcType=CHAR},
+      </if>
+      <if test="mysql != null">
+        #{mysql,jdbcType=CHAR},
+      </if>
+      <if test="hirdb != null">
+        #{hirdb,jdbcType=CHAR},
+      </if>
+      <if test="symfoware != null">
+        #{symfoware,jdbcType=CHAR},
+      </if>
+      <if test="weblogic != null">
+        #{weblogic,jdbcType=CHAR},
+      </if>
+      <if test="apache != null">
+        #{apache,jdbcType=CHAR},
+      </if>
+      <if test="tomcat != null">
+        #{tomcat,jdbcType=CHAR},
+      </if>
+      <if test="visualStudio != null">
+        #{visualStudio,jdbcType=CHAR},
+      </if>
+      <if test="eclipse != null">
+        #{eclipse,jdbcType=CHAR},
+      </if>
+      <if test="rd != null">
+        #{rd,jdbcType=CHAR},
+      </if>
+      <if test="design != null">
+        #{design,jdbcType=CHAR},
+      </if>
+      <if test="pg != null">
+        #{pg,jdbcType=CHAR},
+      </if>
+      <if test="bugFix != null">
+        #{bugFix,jdbcType=CHAR},
+      </if>
+      <if test="test != null">
+        #{test,jdbcType=CHAR},
+      </if>
+      <if test="maintenance != null">
+        #{maintenance,jdbcType=CHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masago.bean.EmpTechBeanExample" resultType="java.lang.Long">
+    select count(*) from emp_tech
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update emp_tech
+    <set>
+      <if test="record.no != null">
+        NO = #{record.no,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empId != null">
+        EMP_ID = #{record.empId,jdbcType=CHAR},
+      </if>
+      <if test="record.dos != null">
+        DOS = #{record.dos,jdbcType=CHAR},
+      </if>
+      <if test="record.windows != null">
+        WINDOWS = #{record.windows,jdbcType=CHAR},
+      </if>
+      <if test="record.unix != null">
+        UNIX = #{record.unix,jdbcType=CHAR},
+      </if>
+      <if test="record.linux != null">
+        LINUX = #{record.linux,jdbcType=CHAR},
+      </if>
+      <if test="record.android != null">
+        ANDROID = #{record.android,jdbcType=CHAR},
+      </if>
+      <if test="record.ios != null">
+        IOS = #{record.ios,jdbcType=CHAR},
+      </if>
+      <if test="record.mac != null">
+        MAC = #{record.mac,jdbcType=CHAR},
+      </if>
+      <if test="record.wince != null">
+        WINCE = #{record.wince,jdbcType=CHAR},
+      </if>
+      <if test="record.osTron != null">
+        OS_TRON = #{record.osTron,jdbcType=CHAR},
+      </if>
+      <if test="record.symbian != null">
+        SYMBIAN = #{record.symbian,jdbcType=CHAR},
+      </if>
+      <if test="record.cygwin != null">
+        CYGWIN = #{record.cygwin,jdbcType=CHAR},
+      </if>
+      <if test="record.brew != null">
+        BREW = #{record.brew,jdbcType=CHAR},
+      </if>
+      <if test="record.netware != null">
+        NETWARE = #{record.netware,jdbcType=CHAR},
+      </if>
+      <if test="record.vb != null">
+        VB = #{record.vb,jdbcType=CHAR},
+      </if>
+      <if test="record.vbnet != null">
+        VBNET = #{record.vbnet,jdbcType=CHAR},
+      </if>
+      <if test="record.asp != null">
+        ASP = #{record.asp,jdbcType=CHAR},
+      </if>
+      <if test="record.vcplus != null">
+        VCPLUS = #{record.vcplus,jdbcType=CHAR},
+      </if>
+      <if test="record.uml != null">
+        UML = #{record.uml,jdbcType=CHAR},
+      </if>
+      <if test="record.perl != null">
+        PERL = #{record.perl,jdbcType=CHAR},
+      </if>
+      <if test="record.c != null">
+        C = #{record.c,jdbcType=CHAR},
+      </if>
+      <if test="record.unixShell != null">
+        UNIX_SHELL = #{record.unixShell,jdbcType=CHAR},
+      </if>
+      <if test="record.plsql != null">
+        PLSQL = #{record.plsql,jdbcType=CHAR},
+      </if>
+      <if test="record.powerbuilder != null">
+        POWERBUILDER = #{record.powerbuilder,jdbcType=CHAR},
+      </if>
+      <if test="record.delphi != null">
+        DELPHI = #{record.delphi,jdbcType=CHAR},
+      </if>
+      <if test="record.python != null">
+        PYTHON = #{record.python,jdbcType=CHAR},
+      </if>
+      <if test="record.java != null">
+        JAVA = #{record.java,jdbcType=CHAR},
+      </if>
+      <if test="record.servlet != null">
+        SERVLET = #{record.servlet,jdbcType=CHAR},
+      </if>
+      <if test="record.jsp != null">
+        JSP = #{record.jsp,jdbcType=CHAR},
+      </if>
+      <if test="record.hibernateJpa != null">
+        HIBERNATE_JPA = #{record.hibernateJpa,jdbcType=CHAR},
+      </if>
+      <if test="record.struts != null">
+        STRUTS = #{record.struts,jdbcType=CHAR},
+      </if>
+      <if test="record.netframework != null">
+        NETFRAMEWORK = #{record.netframework,jdbcType=CHAR},
+      </if>
+      <if test="record.csharp != null">
+        CSHARP = #{record.csharp,jdbcType=CHAR},
+      </if>
+      <if test="record.html != null">
+        HTML = #{record.html,jdbcType=CHAR},
+      </if>
+      <if test="record.proc != null">
+        PROC = #{record.proc,jdbcType=CHAR},
+      </if>
+      <if test="record.ajax != null">
+        AJAX = #{record.ajax,jdbcType=CHAR},
+      </if>
+      <if test="record.flex != null">
+        FLEX = #{record.flex,jdbcType=CHAR},
+      </if>
+      <if test="record.intraMart != null">
+        INTRA_MART = #{record.intraMart,jdbcType=CHAR},
+      </if>
+      <if test="record.php != null">
+        PHP = #{record.php,jdbcType=CHAR},
+      </if>
+      <if test="record.cplus != null">
+        CPLUS = #{record.cplus,jdbcType=CHAR},
+      </if>
+      <if test="record.sql != null">
+        SQL = #{record.sql,jdbcType=CHAR},
+      </if>
+      <if test="record.sapAbap != null">
+        SAP_ABAP = #{record.sapAbap,jdbcType=CHAR},
+      </if>
+      <if test="record.matlab != null">
+        MATLAB = #{record.matlab,jdbcType=CHAR},
+      </if>
+      <if test="record.mathematica != null">
+        MATHEMATICA = #{record.mathematica,jdbcType=CHAR},
+      </if>
+      <if test="record.cobol != null">
+        COBOL = #{record.cobol,jdbcType=CHAR},
+      </if>
+      <if test="record.javascript != null">
+        JAVASCRIPT = #{record.javascript,jdbcType=CHAR},
+      </if>
+      <if test="record.xml != null">
+        XML = #{record.xml,jdbcType=CHAR},
+      </if>
+      <if test="record.assembler != null">
+        ASSEMBLER = #{record.assembler,jdbcType=CHAR},
+      </if>
+      <if test="record.justware != null">
+        JUSTWARE = #{record.justware,jdbcType=CHAR},
+      </if>
+      <if test="record.access != null">
+        ACCESS = #{record.access,jdbcType=CHAR},
+      </if>
+      <if test="record.oracle != null">
+        ORACLE = #{record.oracle,jdbcType=CHAR},
+      </if>
+      <if test="record.sqlserver != null">
+        SQLSERVER = #{record.sqlserver,jdbcType=CHAR},
+      </if>
+      <if test="record.db2 != null">
+        DB2 = #{record.db2,jdbcType=CHAR},
+      </if>
+      <if test="record.sybase != null">
+        SYBASE = #{record.sybase,jdbcType=CHAR},
+      </if>
+      <if test="record.informix != null">
+        INFORMIX = #{record.informix,jdbcType=CHAR},
+      </if>
+      <if test="record.postgresql != null">
+        POSTGRESQL = #{record.postgresql,jdbcType=CHAR},
+      </if>
+      <if test="record.mysql != null">
+        MYSQL = #{record.mysql,jdbcType=CHAR},
+      </if>
+      <if test="record.hirdb != null">
+        HIRDB = #{record.hirdb,jdbcType=CHAR},
+      </if>
+      <if test="record.symfoware != null">
+        SYMFOWARE = #{record.symfoware,jdbcType=CHAR},
+      </if>
+      <if test="record.weblogic != null">
+        WEBLOGIC = #{record.weblogic,jdbcType=CHAR},
+      </if>
+      <if test="record.apache != null">
+        APACHE = #{record.apache,jdbcType=CHAR},
+      </if>
+      <if test="record.tomcat != null">
+        TOMCAT = #{record.tomcat,jdbcType=CHAR},
+      </if>
+      <if test="record.visualStudio != null">
+        VISUAL_STUDIO = #{record.visualStudio,jdbcType=CHAR},
+      </if>
+      <if test="record.eclipse != null">
+        ECLIPSE = #{record.eclipse,jdbcType=CHAR},
+      </if>
+      <if test="record.rd != null">
+        RD = #{record.rd,jdbcType=CHAR},
+      </if>
+      <if test="record.design != null">
+        DESIGN = #{record.design,jdbcType=CHAR},
+      </if>
+      <if test="record.pg != null">
+        PG = #{record.pg,jdbcType=CHAR},
+      </if>
+      <if test="record.bugFix != null">
+        BUG_FIX = #{record.bugFix,jdbcType=CHAR},
+      </if>
+      <if test="record.test != null">
+        TEST = #{record.test,jdbcType=CHAR},
+      </if>
+      <if test="record.maintenance != null">
+        MAINTENANCE = #{record.maintenance,jdbcType=CHAR},
+      </if>
+      <if test="record.creater != null">
+        CREATER = #{record.creater,jdbcType=CHAR},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updater != null">
+        UPDATER = #{record.updater,jdbcType=CHAR},
+      </if>
+      <if test="record.updateDate != null">
+        UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update emp_tech
+    set NO = #{record.no,jdbcType=VARCHAR},
+      EMP_ID = #{record.empId,jdbcType=CHAR},
+      DOS = #{record.dos,jdbcType=CHAR},
+      WINDOWS = #{record.windows,jdbcType=CHAR},
+      UNIX = #{record.unix,jdbcType=CHAR},
+      LINUX = #{record.linux,jdbcType=CHAR},
+      ANDROID = #{record.android,jdbcType=CHAR},
+      IOS = #{record.ios,jdbcType=CHAR},
+      MAC = #{record.mac,jdbcType=CHAR},
+      WINCE = #{record.wince,jdbcType=CHAR},
+      OS_TRON = #{record.osTron,jdbcType=CHAR},
+      SYMBIAN = #{record.symbian,jdbcType=CHAR},
+      CYGWIN = #{record.cygwin,jdbcType=CHAR},
+      BREW = #{record.brew,jdbcType=CHAR},
+      NETWARE = #{record.netware,jdbcType=CHAR},
+      VB = #{record.vb,jdbcType=CHAR},
+      VBNET = #{record.vbnet,jdbcType=CHAR},
+      ASP = #{record.asp,jdbcType=CHAR},
+      VCPLUS = #{record.vcplus,jdbcType=CHAR},
+      UML = #{record.uml,jdbcType=CHAR},
+      PERL = #{record.perl,jdbcType=CHAR},
+      C = #{record.c,jdbcType=CHAR},
+      UNIX_SHELL = #{record.unixShell,jdbcType=CHAR},
+      PLSQL = #{record.plsql,jdbcType=CHAR},
+      POWERBUILDER = #{record.powerbuilder,jdbcType=CHAR},
+      DELPHI = #{record.delphi,jdbcType=CHAR},
+      PYTHON = #{record.python,jdbcType=CHAR},
+      JAVA = #{record.java,jdbcType=CHAR},
+      SERVLET = #{record.servlet,jdbcType=CHAR},
+      JSP = #{record.jsp,jdbcType=CHAR},
+      HIBERNATE_JPA = #{record.hibernateJpa,jdbcType=CHAR},
+      STRUTS = #{record.struts,jdbcType=CHAR},
+      NETFRAMEWORK = #{record.netframework,jdbcType=CHAR},
+      CSHARP = #{record.csharp,jdbcType=CHAR},
+      HTML = #{record.html,jdbcType=CHAR},
+      PROC = #{record.proc,jdbcType=CHAR},
+      AJAX = #{record.ajax,jdbcType=CHAR},
+      FLEX = #{record.flex,jdbcType=CHAR},
+      INTRA_MART = #{record.intraMart,jdbcType=CHAR},
+      PHP = #{record.php,jdbcType=CHAR},
+      CPLUS = #{record.cplus,jdbcType=CHAR},
+      SQL = #{record.sql,jdbcType=CHAR},
+      SAP_ABAP = #{record.sapAbap,jdbcType=CHAR},
+      MATLAB = #{record.matlab,jdbcType=CHAR},
+      MATHEMATICA = #{record.mathematica,jdbcType=CHAR},
+      COBOL = #{record.cobol,jdbcType=CHAR},
+      JAVASCRIPT = #{record.javascript,jdbcType=CHAR},
+      XML = #{record.xml,jdbcType=CHAR},
+      ASSEMBLER = #{record.assembler,jdbcType=CHAR},
+      JUSTWARE = #{record.justware,jdbcType=CHAR},
+      ACCESS = #{record.access,jdbcType=CHAR},
+      ORACLE = #{record.oracle,jdbcType=CHAR},
+      SQLSERVER = #{record.sqlserver,jdbcType=CHAR},
+      DB2 = #{record.db2,jdbcType=CHAR},
+      SYBASE = #{record.sybase,jdbcType=CHAR},
+      INFORMIX = #{record.informix,jdbcType=CHAR},
+      POSTGRESQL = #{record.postgresql,jdbcType=CHAR},
+      MYSQL = #{record.mysql,jdbcType=CHAR},
+      HIRDB = #{record.hirdb,jdbcType=CHAR},
+      SYMFOWARE = #{record.symfoware,jdbcType=CHAR},
+      WEBLOGIC = #{record.weblogic,jdbcType=CHAR},
+      APACHE = #{record.apache,jdbcType=CHAR},
+      TOMCAT = #{record.tomcat,jdbcType=CHAR},
+      VISUAL_STUDIO = #{record.visualStudio,jdbcType=CHAR},
+      ECLIPSE = #{record.eclipse,jdbcType=CHAR},
+      RD = #{record.rd,jdbcType=CHAR},
+      DESIGN = #{record.design,jdbcType=CHAR},
+      PG = #{record.pg,jdbcType=CHAR},
+      BUG_FIX = #{record.bugFix,jdbcType=CHAR},
+      TEST = #{record.test,jdbcType=CHAR},
+      MAINTENANCE = #{record.maintenance,jdbcType=CHAR},
+      CREATER = #{record.creater,jdbcType=CHAR},
+      CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      UPDATER = #{record.updater,jdbcType=CHAR},
+      UPDATE_DATE = #{record.updateDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masago.bean.EmpTechBean">
+    update emp_tech
+    <set>
+      <if test="dos != null">
+        DOS = #{dos,jdbcType=CHAR},
+      </if>
+      <if test="windows != null">
+        WINDOWS = #{windows,jdbcType=CHAR},
+      </if>
+      <if test="unix != null">
+        UNIX = #{unix,jdbcType=CHAR},
+      </if>
+      <if test="linux != null">
+        LINUX = #{linux,jdbcType=CHAR},
+      </if>
+      <if test="android != null">
+        ANDROID = #{android,jdbcType=CHAR},
+      </if>
+      <if test="ios != null">
+        IOS = #{ios,jdbcType=CHAR},
+      </if>
+      <if test="mac != null">
+        MAC = #{mac,jdbcType=CHAR},
+      </if>
+      <if test="wince != null">
+        WINCE = #{wince,jdbcType=CHAR},
+      </if>
+      <if test="osTron != null">
+        OS_TRON = #{osTron,jdbcType=CHAR},
+      </if>
+      <if test="symbian != null">
+        SYMBIAN = #{symbian,jdbcType=CHAR},
+      </if>
+      <if test="cygwin != null">
+        CYGWIN = #{cygwin,jdbcType=CHAR},
+      </if>
+      <if test="brew != null">
+        BREW = #{brew,jdbcType=CHAR},
+      </if>
+      <if test="netware != null">
+        NETWARE = #{netware,jdbcType=CHAR},
+      </if>
+      <if test="vb != null">
+        VB = #{vb,jdbcType=CHAR},
+      </if>
+      <if test="vbnet != null">
+        VBNET = #{vbnet,jdbcType=CHAR},
+      </if>
+      <if test="asp != null">
+        ASP = #{asp,jdbcType=CHAR},
+      </if>
+      <if test="vcplus != null">
+        VCPLUS = #{vcplus,jdbcType=CHAR},
+      </if>
+      <if test="uml != null">
+        UML = #{uml,jdbcType=CHAR},
+      </if>
+      <if test="perl != null">
+        PERL = #{perl,jdbcType=CHAR},
+      </if>
+      <if test="c != null">
+        C = #{c,jdbcType=CHAR},
+      </if>
+      <if test="unixShell != null">
+        UNIX_SHELL = #{unixShell,jdbcType=CHAR},
+      </if>
+      <if test="plsql != null">
+        PLSQL = #{plsql,jdbcType=CHAR},
+      </if>
+      <if test="powerbuilder != null">
+        POWERBUILDER = #{powerbuilder,jdbcType=CHAR},
+      </if>
+      <if test="delphi != null">
+        DELPHI = #{delphi,jdbcType=CHAR},
+      </if>
+      <if test="python != null">
+        PYTHON = #{python,jdbcType=CHAR},
+      </if>
+      <if test="java != null">
+        JAVA = #{java,jdbcType=CHAR},
+      </if>
+      <if test="servlet != null">
+        SERVLET = #{servlet,jdbcType=CHAR},
+      </if>
+      <if test="jsp != null">
+        JSP = #{jsp,jdbcType=CHAR},
+      </if>
+      <if test="hibernateJpa != null">
+        HIBERNATE_JPA = #{hibernateJpa,jdbcType=CHAR},
+      </if>
+      <if test="struts != null">
+        STRUTS = #{struts,jdbcType=CHAR},
+      </if>
+      <if test="netframework != null">
+        NETFRAMEWORK = #{netframework,jdbcType=CHAR},
+      </if>
+      <if test="csharp != null">
+        CSHARP = #{csharp,jdbcType=CHAR},
+      </if>
+      <if test="html != null">
+        HTML = #{html,jdbcType=CHAR},
+      </if>
+      <if test="proc != null">
+        PROC = #{proc,jdbcType=CHAR},
+      </if>
+      <if test="ajax != null">
+        AJAX = #{ajax,jdbcType=CHAR},
+      </if>
+      <if test="flex != null">
+        FLEX = #{flex,jdbcType=CHAR},
+      </if>
+      <if test="intraMart != null">
+        INTRA_MART = #{intraMart,jdbcType=CHAR},
+      </if>
+      <if test="php != null">
+        PHP = #{php,jdbcType=CHAR},
+      </if>
+      <if test="cplus != null">
+        CPLUS = #{cplus,jdbcType=CHAR},
+      </if>
+      <if test="sql != null">
+        SQL = #{sql,jdbcType=CHAR},
+      </if>
+      <if test="sapAbap != null">
+        SAP_ABAP = #{sapAbap,jdbcType=CHAR},
+      </if>
+      <if test="matlab != null">
+        MATLAB = #{matlab,jdbcType=CHAR},
+      </if>
+      <if test="mathematica != null">
+        MATHEMATICA = #{mathematica,jdbcType=CHAR},
+      </if>
+      <if test="cobol != null">
+        COBOL = #{cobol,jdbcType=CHAR},
+      </if>
+      <if test="javascript != null">
+        JAVASCRIPT = #{javascript,jdbcType=CHAR},
+      </if>
+      <if test="xml != null">
+        XML = #{xml,jdbcType=CHAR},
+      </if>
+      <if test="assembler != null">
+        ASSEMBLER = #{assembler,jdbcType=CHAR},
+      </if>
+      <if test="justware != null">
+        JUSTWARE = #{justware,jdbcType=CHAR},
+      </if>
+      <if test="access != null">
+        ACCESS = #{access,jdbcType=CHAR},
+      </if>
+      <if test="oracle != null">
+        ORACLE = #{oracle,jdbcType=CHAR},
+      </if>
+      <if test="sqlserver != null">
+        SQLSERVER = #{sqlserver,jdbcType=CHAR},
+      </if>
+      <if test="db2 != null">
+        DB2 = #{db2,jdbcType=CHAR},
+      </if>
+      <if test="sybase != null">
+        SYBASE = #{sybase,jdbcType=CHAR},
+      </if>
+      <if test="informix != null">
+        INFORMIX = #{informix,jdbcType=CHAR},
+      </if>
+      <if test="postgresql != null">
+        POSTGRESQL = #{postgresql,jdbcType=CHAR},
+      </if>
+      <if test="mysql != null">
+        MYSQL = #{mysql,jdbcType=CHAR},
+      </if>
+      <if test="hirdb != null">
+        HIRDB = #{hirdb,jdbcType=CHAR},
+      </if>
+      <if test="symfoware != null">
+        SYMFOWARE = #{symfoware,jdbcType=CHAR},
+      </if>
+      <if test="weblogic != null">
+        WEBLOGIC = #{weblogic,jdbcType=CHAR},
+      </if>
+      <if test="apache != null">
+        APACHE = #{apache,jdbcType=CHAR},
+      </if>
+      <if test="tomcat != null">
+        TOMCAT = #{tomcat,jdbcType=CHAR},
+      </if>
+      <if test="visualStudio != null">
+        VISUAL_STUDIO = #{visualStudio,jdbcType=CHAR},
+      </if>
+      <if test="eclipse != null">
+        ECLIPSE = #{eclipse,jdbcType=CHAR},
+      </if>
+      <if test="rd != null">
+        RD = #{rd,jdbcType=CHAR},
+      </if>
+      <if test="design != null">
+        DESIGN = #{design,jdbcType=CHAR},
+      </if>
+      <if test="pg != null">
+        PG = #{pg,jdbcType=CHAR},
+      </if>
+      <if test="bugFix != null">
+        BUG_FIX = #{bugFix,jdbcType=CHAR},
+      </if>
+      <if test="test != null">
+        TEST = #{test,jdbcType=CHAR},
+      </if>
+      <if test="maintenance != null">
+        MAINTENANCE = #{maintenance,jdbcType=CHAR},
+      </if>
+      <if test="creater != null">
+        CREATER = #{creater,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updater != null">
+        UPDATER = #{updater,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=DATE},
+      </if>
+    </set>
+    where NO = #{no,jdbcType=VARCHAR}
+      and EMP_ID = #{empId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masago.bean.EmpTechBean">
+    update emp_tech
+    set DOS = #{dos,jdbcType=CHAR},
+      WINDOWS = #{windows,jdbcType=CHAR},
+      UNIX = #{unix,jdbcType=CHAR},
+      LINUX = #{linux,jdbcType=CHAR},
+      ANDROID = #{android,jdbcType=CHAR},
+      IOS = #{ios,jdbcType=CHAR},
+      MAC = #{mac,jdbcType=CHAR},
+      WINCE = #{wince,jdbcType=CHAR},
+      OS_TRON = #{osTron,jdbcType=CHAR},
+      SYMBIAN = #{symbian,jdbcType=CHAR},
+      CYGWIN = #{cygwin,jdbcType=CHAR},
+      BREW = #{brew,jdbcType=CHAR},
+      NETWARE = #{netware,jdbcType=CHAR},
+      VB = #{vb,jdbcType=CHAR},
+      VBNET = #{vbnet,jdbcType=CHAR},
+      ASP = #{asp,jdbcType=CHAR},
+      VCPLUS = #{vcplus,jdbcType=CHAR},
+      UML = #{uml,jdbcType=CHAR},
+      PERL = #{perl,jdbcType=CHAR},
+      C = #{c,jdbcType=CHAR},
+      UNIX_SHELL = #{unixShell,jdbcType=CHAR},
+      PLSQL = #{plsql,jdbcType=CHAR},
+      POWERBUILDER = #{powerbuilder,jdbcType=CHAR},
+      DELPHI = #{delphi,jdbcType=CHAR},
+      PYTHON = #{python,jdbcType=CHAR},
+      JAVA = #{java,jdbcType=CHAR},
+      SERVLET = #{servlet,jdbcType=CHAR},
+      JSP = #{jsp,jdbcType=CHAR},
+      HIBERNATE_JPA = #{hibernateJpa,jdbcType=CHAR},
+      STRUTS = #{struts,jdbcType=CHAR},
+      NETFRAMEWORK = #{netframework,jdbcType=CHAR},
+      CSHARP = #{csharp,jdbcType=CHAR},
+      HTML = #{html,jdbcType=CHAR},
+      PROC = #{proc,jdbcType=CHAR},
+      AJAX = #{ajax,jdbcType=CHAR},
+      FLEX = #{flex,jdbcType=CHAR},
+      INTRA_MART = #{intraMart,jdbcType=CHAR},
+      PHP = #{php,jdbcType=CHAR},
+      CPLUS = #{cplus,jdbcType=CHAR},
+      SQL = #{sql,jdbcType=CHAR},
+      SAP_ABAP = #{sapAbap,jdbcType=CHAR},
+      MATLAB = #{matlab,jdbcType=CHAR},
+      MATHEMATICA = #{mathematica,jdbcType=CHAR},
+      COBOL = #{cobol,jdbcType=CHAR},
+      JAVASCRIPT = #{javascript,jdbcType=CHAR},
+      XML = #{xml,jdbcType=CHAR},
+      ASSEMBLER = #{assembler,jdbcType=CHAR},
+      JUSTWARE = #{justware,jdbcType=CHAR},
+      ACCESS = #{access,jdbcType=CHAR},
+      ORACLE = #{oracle,jdbcType=CHAR},
+      SQLSERVER = #{sqlserver,jdbcType=CHAR},
+      DB2 = #{db2,jdbcType=CHAR},
+      SYBASE = #{sybase,jdbcType=CHAR},
+      INFORMIX = #{informix,jdbcType=CHAR},
+      POSTGRESQL = #{postgresql,jdbcType=CHAR},
+      MYSQL = #{mysql,jdbcType=CHAR},
+      HIRDB = #{hirdb,jdbcType=CHAR},
+      SYMFOWARE = #{symfoware,jdbcType=CHAR},
+      WEBLOGIC = #{weblogic,jdbcType=CHAR},
+      APACHE = #{apache,jdbcType=CHAR},
+      TOMCAT = #{tomcat,jdbcType=CHAR},
+      VISUAL_STUDIO = #{visualStudio,jdbcType=CHAR},
+      ECLIPSE = #{eclipse,jdbcType=CHAR},
+      RD = #{rd,jdbcType=CHAR},
+      DESIGN = #{design,jdbcType=CHAR},
+      PG = #{pg,jdbcType=CHAR},
+      BUG_FIX = #{bugFix,jdbcType=CHAR},
+      TEST = #{test,jdbcType=CHAR},
+      MAINTENANCE = #{maintenance,jdbcType=CHAR},
+      CREATER = #{creater,jdbcType=CHAR},
+      CREATE_DATE = #{createDate,jdbcType=DATE},
+      UPDATER = #{updater,jdbcType=CHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=DATE}
+    where NO = #{no,jdbcType=VARCHAR}
+      and EMP_ID = #{empId,jdbcType=CHAR}
+  </update>
+</mapper>
